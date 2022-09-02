@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hive>
+  <task_dir name="北京海外SDK(bj_omni_sdk)/定时任务/分层调度"/>
+  <start_date name="2021-10-21"/>
+</hive>

@@ -1,0 +1,12 @@
+dimension,dimension_name
+service_group,所属服务组
+datasource,数据源
+sdk_version,SDK 版本
+channel,渠道名称
+os,操作系统类型
+os_version,操作系统版本
+vendor,手机品牌
+device_model,手机型号
+country,国家
+url_path,接口路径（url_path）
+host,域名（Host）

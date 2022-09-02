@@ -1,0 +1,12 @@
+version: '3'
+services:
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.16.2
+    volumes: 
+      - ./filebeat.yml:/local/filebeat.yml
+      - ./data:/data
+    # restart: always
+    command: [ "filebeat", "-e",  "-c", "/local/filebeat.yml" ]
+    environment:
+      AWS_ACCESS_KEY_ID: AKIAYBGQUCQ7EFW27USS
+      AWS_SECRET_ACCESS_KEY: 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

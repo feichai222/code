@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task name="dwd_fact_omni_sdk_order_create_di" desc=" OmniSDK 订单创建事实表">
+  <type name="ods-to-dwd"/>
+  <from db="dw_omni_sdk" table="ods_omni_sdk_event_di"/>
+  <to db="dw_omni_sdk" table="dwd_fact_omni_sdk_order_create_di"/>
+  <filter content="event_name = 'create_order'" desc="事件类型是 create_order"/>
+  <distinct name="time_ms"/>
+  <distinct name="datasource"/>
+  <distinct name="account_id"/>
+  <distinct name="event_name"/>
+</task>

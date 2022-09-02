@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="dm_omni_sdk">
+  <table name="dwb_fact_omni_sdk_order_detail_di" desc="OmniSDK订单明细事实表" format="ORC">
+    <partition name="dt" type="string" from-column="dt"/>
+    <column name="account_id" type="string" desc="SDK 用户唯一 ID"/>
+    <column name="order_id" type="string" desc="订单 ID"/>
+    <column name="create_order_time" type="string" desc="创建订单时间"/>
+    <column name="complete_order_time" type="string" desc="完成订单时间"/>
+    <column name="create_order_amount" type="string" desc="创建订单金额"/>
+    <column name="complete_order_amount" type="string" desc="完成订单金额"/>
+    <column name="currency_code" type="string" desc="币种"/>
+    <column name="channel" type="string" desc="渠道名称"/>
+    <column name="os" type="string" desc="操作系统类型"/>
+    <column name="os_version" type="string" desc="操作系统版本"/>
+    <column name="vendor" type="string" desc="手机品牌"/>
+    <column name="device_model" type="string" desc="手机型号"/>
+    <column name="service_group" type="string" desc="数据源"/>
+    <column name="datasource" type="string" desc="请求来源"/>
+    <column name="game_id" type="string" desc="应用 ID"/>
+    <column name="msg_version" type="string" desc="消息版本"/>
+    <column name="sdk_version" type="string" desc="SDK 版本"/>
+    <column name="device_id" type="string" desc="设备 ID"/>
+    <column name="host" type="string" desc="客户端请求 Host"/>
+    <column name="event_group" type="string" desc="数据类型"/>
+    <column name="another_device_id" type="string" desc="另一个设备 ID"/>
+    <column name="ip" type="string" desc="客户端IP"/>
+    <column name="notify_url" type="string" desc="URL"/>
+    <column name="role_id" type="string" desc="角色 ID"/>
+    <column name="header_os" type="string" desc="header 操作系统类型"/>
+    <column name="header_device" type="string" desc="header 操作设备类型"/>
+    <column name="country" type="string" desc="国家/地区代码"/>
+    <column name="city" type="string" desc="城市名称"/>
+    <column name="country_name" type="string" desc="国家名称"/>
+    <column name="country_region_name" type="string" desc="区域名称"/>
+    <column name="latitude" type="string" desc="纬度"/>
+    <column name="longitude" type="string" desc="经度"/>
+    <column name="time_zone" type="string" desc="时区"/>
+    <column name="http_version" type="string" desc="请求的 HTTP 版本"/>
+  </table>
+</database>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task name="ods_omni_sdk_event_rt" desc="OmniSDK数据上报原始新表">
+  <type name="raw-to-ods"/>
+  <from db="dw_omni_sdk" table="raw_omni_sdk_event"/>
+  <to db="dw_omni_sdk" table="ods_omni_sdk_event_rt"/>
+  <realtime name="True"/>
+  <date-filter content="from_unixtime(CAST(get_json_object(regexp_replace (raw_json, '#', '' ), '$.time_ms')/1000 AS BIGINT), 'yyyy-MM-dd')"/>
+  <filter content="get_json_object(regexp_replace (raw_json, '#', '' ), '$.event_name') IS NOT NULL" desc="JSON解析成功,且 event_name 不为空"/>
+</task>

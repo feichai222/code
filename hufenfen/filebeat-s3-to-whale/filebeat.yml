@@ -1,0 +1,54 @@
+path.data: /data/filebeat
+logging.metrics.enabled: false
+filebeat.shutdown_timeout: 15s
+
+filebeat.inputs:
+- type: aws-s3
+  queue_url: https://sqs.cn-northwest-1.amazonaws.com.cn/552340821054/seayoo-dev-analytics-whale
+  # expand_event_list_from_field: Records
+  # access_key_id: AKIAYBGQUCQ7EFW27USS
+  # secret_access_key: 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
+  # credential_profile_name: elastic-beats
+  file_selectors:
+  - regex: 'whale/whale/zt/bullet_angel/'
+    expand_event_list_from_field: 'Records'
+  fields:
+    projectId: bj_bulletangel
+    importCode: ba_test_zt_s3_filebeat_import
+  # endpoint: sqs.cn-northwest-1.amazonaws.com.cn
+
+
+# %{for params in var.filebeat_inputs_field}
+# - type: log
+#   enabled: true
+#   paths: ["${params.path}"]
+#   fields:
+#     projectId: ${params.projectId}
+#     importCode: ${params.importCode}
+#   tail_files: false
+#   encoding: utf-8
+#   clean_removed: false
+#   close_renamed: true
+#   scan_frequency: 10s
+#   close_removed: false
+#   ignore_older: 168h
+#   clean_inactive: 240h
+# %{endfor}
+
+# output.logstash:
+#   hosts: 
+#     - logstash.whale.xoyo.com:5044
+#     - logstash2.whale.xoyo.com:5044
+#     - logstash3.whale.xoyo.com:5044
+#     - logstash4.whale.xoyo.com:5044
+#   loadbalance: true
+# #   worker: ${var.worker}
+# #   bulk_max_size: ${var.bulk_max_size}
+# #   pipelining: ${var.pipelining}
+#   timeout: 300
+
+output.file:
+  path: "/data/output"
+  filename: filebeat
+
+# queue.mem.events: ${var.bulk_max_size * var.worker * var.pipelining}
